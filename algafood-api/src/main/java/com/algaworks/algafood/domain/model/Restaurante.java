@@ -21,11 +21,12 @@ public class Restaurante implements Serializable {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    private Long id;
 
     @Column(length = 60)
     private String nome;
 
+    @Column(precision = 15, scale = 4)
     private BigDecimal taxaFrete;
 
 }
