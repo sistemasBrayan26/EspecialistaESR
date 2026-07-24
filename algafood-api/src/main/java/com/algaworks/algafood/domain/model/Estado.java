@@ -1,20 +1,15 @@
 package com.algaworks.algafood.domain.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
-@Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Restaurante implements Serializable {
+@Data
+@Entity
+public class Estado implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,11 +21,5 @@ public class Restaurante implements Serializable {
     @Column(length = 60, nullable = false)
     private String nome;
 
-    @Column(precision = 15, scale = 4, nullable = false)
-    private BigDecimal taxaFrete;
-
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Cozinha cozinha;
 
 }

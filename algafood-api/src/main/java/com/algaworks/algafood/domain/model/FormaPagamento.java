@@ -1,19 +1,15 @@
 package com.algaworks.algafood.domain.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Cozinha implements Serializable {
+@Entity
+public class FormaPagamento implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,8 +18,6 @@ public class Cozinha implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 60, nullable = false)
-    private String nome;
-
-
+    @Column(nullable = false, length = 60)
+    private String descricao;
 }
