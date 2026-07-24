@@ -29,4 +29,7 @@ public class Restaurante implements Serializable {
     @Column(precision = 15, scale = 4)
     private BigDecimal taxaFrete;
 
+    @ManyToOne
+    private Cozinha cozinha;
+
 }
