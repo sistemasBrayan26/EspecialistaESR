@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cozinhas")
@@ -32,10 +33,10 @@ public class CozinhaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Cozinha> buscarPorId(@PathVariable Long id) {
-        Cozinha cozinha = cozinhaRepository.findById(id).orElse(null);
+        Optional<Cozinha> cozinha = cozinhaRepository.findById(id);
 
-       if (cozinha != null) {
-           return ResponseEntity.ok(cozinha);
+       if (cozinha.isPresent()) {
+           return ResponseEntity.ok(cozinha.get());
        }
 
        return ResponseEntity.notFound().build();
@@ -48,11 +49,11 @@ public class CozinhaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Cozinha> atualizar(@RequestBody Cozinha cozinha, @PathVariable Long id) {
-        Cozinha cozinhaAtual = cozinhaRepository.findById(id).orElse(null);
+        Optional<Cozinha> cozinhaAtual = cozinhaRepository.findById(id);
 
-        if (cozinhaAtual != null) {
-            BeanUtils.copyProperties(cozinha, cozinhaAtual, "id");
-            return ResponseEntity.ok(cozinhaRepository.save(cozinhaAtual));
+        if (cozinhaAtual.isPresent()) {
+            BeanUtils.copyProperties(cozinha, cozinhaAtual.get(), "id");
+            return ResponseEntity.ok(cozinhaRepository.save(cozinhaAtual.get()));
 
         }
 
