@@ -36,3 +36,9 @@ insert into cidade (nome, estado_id) values ('ARAPORA', 4);
 insert into cidade (nome, estado_id) values ('UBERLÃNDIA', 4);
 insert into cidade (nome,estado_id) values ('TUPACIGUARA', 4);
 insert into cidade (nome, estado_id) values ('CONTAGEM', 4);
+
+insert into restaurante_forma_pagamento (restaurante_id, forma_pagamento_id) values (1,1), (1,2), (1,3), (2,3), (3,2), (3,3);
+
+update restaurante set end_logradouro = 'Rua teste', end_numero = '100', end_bairro = 'Centro', end_complemento = 'Dentro do shopping', end_cep = '75589-696', cidade_id = 1 where id = 1;
+update restaurante set end_logradouro = 'Rua Alvorada', end_numero = '200', end_bairro = 'Primavera', end_complemento = 'Na esquina', end_cep = '56894-875', cidade_id = 5 where id = 2;
+update restaurante set end_logradouro = 'Av. Castelo Branco', end_numero = '20', end_bairro = 'Alvorada', end_complemento = 'Avenida principal', end_cep = '75589-858', cidade_id = 8 where id = 3;
